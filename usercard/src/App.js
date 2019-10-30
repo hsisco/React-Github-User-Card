@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { CardDeck } from 'reactstrap';
-import Followers from './FollowerCard';
+import Followers from './Followers';
 import HsiscoCard from './HsiscoCard';
 
 class App extends React.Component {

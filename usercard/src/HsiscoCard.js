@@ -1,18 +1,24 @@
 import React from 'react';
-import UserCard from './UserCard';
+import {
+  Card, CardImg, CardTitle, CardText,
+  CardSubtitle, CardBody
+} from 'reactstrap';// import UserCard from './UserCard';
 
 
 const HsiscoCard = props => {
   return(
     <div className="hsisco-card">
-        <UserCard
-          key={props.id}
-          avatar={props.avatar_url}
-          name={props.name}
-          userLink={props.url}
-          login={props.login}
-          location={props.location}
-          bio={props.bio} />
+      <Card>
+        <CardImg top width="100%" src={props.userName.avatar_url} alt={`${props.userName.login}'s profile avatar`} />
+        <CardBody>
+          <CardTitle>{props.userName.name}</CardTitle>
+          <a href={props.userName.name}>
+            <CardSubtitle>{props.userName.login}</CardSubtitle>
+          </a>
+          <CardText>{props.userName.location}</CardText>
+          <CardText>{props.userName.bio}</CardText>
+        </CardBody>
+      </Card>
     </div>
   );
 }
