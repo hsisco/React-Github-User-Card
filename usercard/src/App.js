@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import { CardDeck } from 'reactstrap';
 import UserCard from './UserCard';
 
 class App extends React.Component {
@@ -34,20 +34,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <img src="../public/lambdalogo.png" />
+          <img src="../public/lambdalogo.png" alt="Lambda School logo" />
           <h1>:heart: s</h1>
-          <img src="../public/githublogo.png" />
+          <img src="../public/githublogo.png" alt="Github logo" />
         </header>
-        <UserCard>
-          <User hsisco={hsisco} />
-        </UserCard>
-        <UserCard>
-          {followers.map(followers => (
-          <User 
-            key={followers.id}
-            avatarUrl={}
-            login={followers.login} /> ))}
-        </UserCard>
+        <UserCard hsisco={this.state.hsisco} />
+        <CardDeck>
+          <UserCard followers={this.state.followers} />
+        </CardDeck>
       </div>
     );
   }
