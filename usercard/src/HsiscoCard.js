@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Card, CardImg, CardTitle, CardText,
   CardSubtitle, CardBody
-} from 'reactstrap';// import UserCard from './UserCard';
+} from 'reactstrap';
 
 
 const HsiscoCard = props => {
