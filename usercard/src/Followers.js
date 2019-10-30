@@ -1,12 +1,12 @@
 import React from 'react';
-import UserCard from './FollowerCard';
+import FollowerCard from './FollowerCard';
 
 
 const Follower = props => {
   return(
     <div className="followers-card">
       {props.followers.map(follower => (
-        <UserCard
+        <FollowerCard
           key={follower.id}
           avatar={follower.avatar_url}
           name={follower.name}
