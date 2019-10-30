@@ -5,7 +5,7 @@ import UserCard from './UserCard';
 
 class App extends React.Component {
     state = {
-      hsisco: '',
+      hsisco: {},
       followers: []
     }
   
@@ -38,7 +38,16 @@ class App extends React.Component {
           <h1>:heart: s</h1>
           <img src="../public/githublogo.png" />
         </header>
-        <UserCard hsisco={this.state.hsisco} followers={this.state.followers} />
+        <UserCard>
+          <User hsisco={hsisco} />
+        </UserCard>
+        <UserCard>
+          {followers.map(followers => (
+          <User 
+            key={followers.id}
+            avatarUrl={}
+            login={followers.login} /> ))}
+        </UserCard>
       </div>
     );
   }
