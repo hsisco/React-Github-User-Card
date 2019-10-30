@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './App.css';
 import { CardDeck } from 'reactstrap';
 import Followers from './FollowerCard';
 import HsiscoCard from './HsiscoCard';
@@ -35,7 +36,7 @@ class App extends React.Component {
       <div className="App">
         <header>
           <img src="../public/lambdalogo.png" alt="Lambda School logo" />
-          <h1>:heart: s</h1>
+          <span role="img" aria-label="heart emoji">❤️s</span>
           <img src="../public/githublogo.png" alt="GitHub logo" />
         </header>
         <HsiscoCard userName={this.state.userName} />
