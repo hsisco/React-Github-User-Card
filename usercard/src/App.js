@@ -1,31 +1,31 @@
 import React from 'react';
 import axios from 'axios';
 import { CardDeck } from 'reactstrap';
-import UserCard from './UserCard';
+import Followers from './FollowerCard';
+import HsiscoCard from './HsiscoCard';
 
 class App extends React.Component {
-    state = {
-      hsisco: {},
+  constructor(){
+    super();
+    this.state = {
+      userName: {},
       followers: []
     }
-  
+  }
 
   componentDidMount() {
     axios
     .get(`https://api.github.com/users/hsisco`)
     .then (response => {
-      // console.log(response.data);
-        this.setState({hsisco: response.data});
+      console.log(response.data);
+        this.setState({userName: response.data});
       })
     .catch (error => console.log('Nope. No hsisco.', error))
-  };
-
-  listFollowers() {
     axios
-    .get(this.state.hsisco.followers_url)
+    .get(`https://api.github.com/users/hsisco/followers`)
     .then (response => {
-      // console.log(response.data);
-        this.setState({followers: response.data.followers_url})
+      console.log(response.data);
+        this.setState({followers: response.data})
       })
       .catch (error => console.log('No followers. Sad.', error))
   };
@@ -36,11 +36,11 @@ class App extends React.Component {
         <header>
           <img src="../public/lambdalogo.png" alt="Lambda School logo" />
           <h1>:heart: s</h1>
-          <img src="../public/githublogo.png" alt="Github logo" />
+          <img src="../public/githublogo.png" alt="GitHub logo" />
         </header>
-        <UserCard hsisco={this.state.hsisco} />
+        <HsiscoCard userName={this.state.userName} />
         <CardDeck>
-          <UserCard followers={this.state.followers} />
+          <Followers followers={this.state.followers} />
         </CardDeck>
       </div>
     );
