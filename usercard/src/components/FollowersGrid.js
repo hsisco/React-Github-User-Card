@@ -21,9 +21,16 @@ class FollowersGrid extends React.Component {
   render(){
     return (
       <div className="FollowersGrid">
-        <header className="App-header">
-        </header>
-        <FollowerCard followers={this.state} />
+      {this.followers.map(follower => (
+        <FollowerCard
+          key={follower.id}
+          avatar={follower.avatar_url}
+          name={follower.name}
+          userLink={follower.url}
+          login={follower.login}
+          location={follower.location}
+          bio={follower.bio} />
+      ))}
       </div>
     )};
 }
