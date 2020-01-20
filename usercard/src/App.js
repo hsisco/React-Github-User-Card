@@ -7,14 +7,14 @@ import './App.css';
 class App extends React.Component {
   state = {
     me: [],
-    users: []
   };
 
   componentDidMount(){
-    axios.get('https://api.github.com/users/hsisco')
+    axios
+    .get('https://api.github.com/users/hsisco')
     .then(res => {
       const myCard = res.data
-      console.log('Info: hsisco:', myCard);
+      console.log('Info about hsisco:', myCard);
       this.setState({ ...this.state, me: myCard });
     })
     .catch(err => console.log('Error getting hsisco info:', err));
