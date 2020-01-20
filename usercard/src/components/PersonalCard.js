@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import './App.css';
 
 class PersonalCard extends React.Component {
   state = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import './App.css';
+import FollowerCard from './FollowerCard';
 
 class FollowersGrid extends React.Component {
   state = {
@@ -22,6 +22,7 @@ class FollowersGrid extends React.Component {
       <div className="FollowersGrid">
         <header className="App-header">
         </header>
+        <FollowerCard />
       </div>
     )};
 }

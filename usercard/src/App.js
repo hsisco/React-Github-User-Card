@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import PersonalCard from './PersonalCard';
-import FollowersGrid from './FollowersGrid';
+import PersonalCard from './components/PersonalCard';
+import FollowersGrid from './components/FollowersGrid';
 import './App.css';
 
 class App extends React.Component {
