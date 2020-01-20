@@ -1,6 +1,6 @@
 import React from 'react';
 
-class PersonalCard extends React.Component {
+function PersonalCard extends React.Component {
   state = {
     me: [],
   };
