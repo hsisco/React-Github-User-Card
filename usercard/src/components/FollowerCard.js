@@ -7,9 +7,9 @@ import {
   CardSubtitle, 
   CardBody} from 'reactstrap';
 
-const FollowerCard = props => {
-  return (
-    <div className="FollowerCard">
+  const FollowerCard = props => {
+    return(
+      <div className="follower-card">
       <Card>
         <CardImg top width="100%" src={props.avatar} alt={`${props.login}'s profile avatar`} />
         <CardBody>
@@ -21,8 +21,8 @@ const FollowerCard = props => {
           <CardText>{props.bio}</CardText>
         </CardBody>
       </Card>
-    </div>
-  );
-}
+      </div>
+    );
+  }
 
 export default FollowerCard;

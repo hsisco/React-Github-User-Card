@@ -1,38 +1,24 @@
 import React from 'react';
-import axios from 'axios';
 import FollowerCard from './FollowerCard';
+import { CardDeck } from 'reactstrap';
 
-class FollowersGrid extends React.Component {
-  state = {
-    followers: [],
-  };
-
-  componentDidMount(){
-    axios
-    .get('https://api.github.com/users/hsisco/followers')
-    .then(res => {
-      const followers =  res.data
-      console.log('Info about followers:', followers);
-      this.setState({ ...this.state, followers: followers });
-    })
-    .catch(err => console.log('Error getting follower info:', err));
-  }
-
-  render(){
-    return (
-      <div className="FollowersGrid">
-      {this.state.followers.map(follower => (
+const FollowersGrid = props => {
+  return(
+    <div className="followers-grid">
+      <CardDeck>
+        {props.followers.map(follower => (
         <FollowerCard
           key={follower.id}
           avatar={follower.avatar_url}
           name={follower.name}
-          userLink={follower.url}
+          userLink={follower.html_url}
           login={follower.login}
           location={follower.location}
           bio={follower.bio} />
       ))}
-      </div>
-    )};
+      </CardDeck>
+    </div>
+  );
 }
 
 export default FollowersGrid;

@@ -1,34 +1,51 @@
 import React from 'react';
 import axios from 'axios';
-import PersonalCard from './components/PersonalCard';
-import FollowersGrid from './components/FollowersGrid';
 import './App.css';
+import { CardDeck } from 'reactstrap';
+import FollowersGrid from './components/FollowersGrid';
+import PersonalCard from './components/PersonalCard';
 
 class App extends React.Component {
-  state = {
-    me: [],
-  };
-
-  componentDidMount(){
-    axios
-    .get('https://api.github.com/users/hsisco')
-    .then(res => {
-      const myCard = res.data
-      console.log('Info about hsisco:', myCard);
-      this.setState({ ...this.state, me: myCard });
-    })
-    .catch(err => console.log('Error getting hsisco info:', err));
+  constructor(){
+    super();
+    this.state = {
+      userName: {},
+      followers: []
+    }
   }
 
+  componentDidMount() {
+    axios
+    .get(`https://api.github.com/users/hsisco`)
+    .then (response => {
+      console.log(response.data);
+        this.setState({userName: response.data});
+      })
+    .catch (error => console.log('Nope. No hsisco.', error))
+    axios
+    .get(`https://api.github.com/users/hsisco/followers`)
+    .then (response => {
+      console.log(response.data);
+        this.setState({followers: response.data})
+      })
+      .catch (error => console.log('No followers. Sad.', error))
+  };
+  
   render(){
     return (
       <div className="App">
-        <header className="App-header">
+        <header>
+          <PersonalCard userName={this.state.userName} />
+          <h3>
+          Look at all of my many followers:
+          </h3>
         </header>
-        <PersonalCard />
-        <FollowersGrid />
+        <CardDeck>
+          <FollowersGrid followers={this.state.followers} />
+        </CardDeck>
       </div>
-    )};
+    );
+  }
 }
 
 export default App;
