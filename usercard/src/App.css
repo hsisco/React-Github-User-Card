@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.card-deck {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hsisco-card .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  margin: 0 auto;
+}
+.hsisco-card .card-img-top {
+  width: 40%;
+  border-radius: 50%;
+
+}
+.hsisco-card .card-title {
+  font-size: 2rem;
+}
+.hsisco-card .card-body {
+  width: 60%;
+  text-align: left;
+  padding: 3vw
+}
+
+.followers-card .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  margin: 0 auto;
+}
+.followers-card .card-img-top {
+  width: 80%;
+  border-radius: 50%;
+
+}
+.followers-card .card-title {
+  font-size: 1.8rem;
+}
+.followers-card .card-body {
+  width: 60%;
+  text-align: center;
+  padding: 2vw
+}
